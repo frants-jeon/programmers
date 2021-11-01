@@ -20,40 +20,30 @@ def solution(new_id):
     for i in range(len(level3)):
         if i == 0 and level3[i] == '.':
             continue
-        if i == level3[-1] and level3[i] == '.':
+        if i == len(level3) - 1 and level3[i] == '.':
             continue
         level4.append(level3[i])
 
-
-    # # level5 빈문자면 a대입
-    # if len(answer) == 0:
-    #     for i in range(3):
-    #         answer.append('a')
+    # level5 빈문자면 a대입
+    if len(level4) == 0:
+        for i in range(3):
+            level4.append('a')
     
-    # #level6 문자열 15개로 맞추기
-    # r = []
-    # if len(answer) > 15:
-    #     for i in range(15, len(answer)):
-    #         answer[i] = '?'
-    #         r.append('?')
-    #     for i in r:
-    #         answer.remove(i)
-    #     if answer[14] == '.':
-    #         answer.remove(answer[14])
+    #level6 문자열 15개로 맞추기
+    level6 = level4[:15]
+    if level6[-1] == '.':
+        level6.pop(-1)
             
-    # # level7 문자수 최소 3개 맞추기
-    # while len(answer) < 3:
-    #     last = answer[len(answer) - 1]
-    #     answer.append(last)
+    # level7 문자수 최소 3개 맞추기
+    while len(level6) < 3:
+        level6.append(level6[-1])
 
-    # answer_final = ''
-    # for i in answer:
-    #     answer_final += ''.join(i)
-    # answer = answer_final
+    level6_final = ''
+    for i in level6:
+        level6_final += ''.join(i)
+    answer = level6_final
 
     
-    return level4
-
+    return answer
 
 print(solution(input()))
-    
