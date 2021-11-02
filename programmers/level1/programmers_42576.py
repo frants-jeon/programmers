@@ -1,11 +1,15 @@
-import copy
-
 def solution(participant: list, completion):
-    answer = []
-    for i in participant:
-        if participant.count(i) != completion.count(i) + answer.count(i):
-            answer.append(i)
-    return answer
+    answer = list(set(participant) - set(completion))
+    if len(answer) == 1:
+        return answer[0]
+    participant = sorted(participant)
+    completion = sorted(completion)
+    for i in range(len(completion)):
+        if participant[i] != completion[i]:
+            answer.append(participant[i])
+            break
+
+    return answer[0]
 
 participant = ["mislav", "stanko", "mislav", "ana"]	
 completion = ["stanko", "ana", "mislav"]	
