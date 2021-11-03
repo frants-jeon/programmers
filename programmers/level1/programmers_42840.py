@@ -31,11 +31,11 @@ def solution(answers):
         for i in range(3):
             if score[i] != 0:
                 score[i] = i + 1
-            score.pop(score.index(min(score)))
+        score.pop(score.index(min(score)))
         return score
     else:
         return [score.index(max(score)) + 1]
 
-answers = [1,2,3,4,5]
+answers = [1,2,3,4,5,2] * 1500
 
 print(solution(answers))
