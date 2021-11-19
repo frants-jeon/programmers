@@ -10,4 +10,5 @@ def solution(nums):
 
 
 test = [3,1,2,3]
-print(solution(test))
+if __name__ == '__main__' :
+    print(solution(test))
